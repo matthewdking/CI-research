@@ -15,7 +15,7 @@ const router = (request, response) => {
     })
     request.on('end', () => {
       if (data === '') {
-        response.writeHead(302, {'content-type': "text/html"});
+        response.writeHead(302, {'location':'/blog'});
         response.end()
       }
       else {
