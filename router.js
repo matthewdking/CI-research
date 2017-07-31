@@ -15,7 +15,7 @@ const router = (request, response) => {
     })
     request.on('end', () => {
       if (data === '') {
-        response.writeHead(302, {'content-type': "text/html"});
+        response.writeHead(302, {'location': "/blog"});
         response.end()
       }
       else {
@@ -28,7 +28,6 @@ const router = (request, response) => {
       response.writeHead(403, {'content-type': "text/html"});
       response.end('Forbidden')
     }
-
   else {
     response.writeHead(404, {'content-type': "text/html"});
     response.end(`UnknownURI`)

@@ -62,6 +62,7 @@ test(`Blog Posts NO passwords`, (t) => {
 test(`Blog Posts NO payload`, (t) => {
   shot.inject(router, {method: `POST`, url: `/blog`, headers: {password: "potato"}}, (response) => {
     t.equal(response.statusCode, 302, `Should return with a status code of 302`);
+    t.equal(response.headers.location, '/blog', 'Header should include Location /blog')
     t.end()
   })
 })
